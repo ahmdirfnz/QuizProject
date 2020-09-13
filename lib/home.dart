@@ -14,34 +14,42 @@ class _HomepageState extends State<Homepage> {
     return Padding(
       padding: EdgeInsets.all(20.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          FlatButton(
-            color: Colors.black,
-            textColor: Colors.tealAccent,
-            child: Text(
-              "Objective",
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            FlatButton(
+              color: Colors.black,
+              textColor: Colors.tealAccent,
+              child: Text(
+                "Objective",
+                style: TextStyle(
+                  fontSize: 40.0,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => HomepageObj(),
+                ));
+              },
             ),
-            onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => HomepageObj(),
-              ));
-            },
-          ),
-          FlatButton(
-            color: Colors.black,
-            textColor: Colors.tealAccent,
-            child: Text(
-              "Subjective",
+            SizedBox(
+              height: 20.0,
             ),
-            onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => HomepageSub(),
-              ));
-            },
-          ),
-        ]
-      ),
+            FlatButton(
+              color: Colors.black,
+              textColor: Colors.tealAccent,
+              child: Text(
+                "Subjective",
+                style: TextStyle(
+                  fontSize: 40.0,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => HomepageSub(),
+                ));
+              },
+            ),
+          ]),
     );
   }
 }

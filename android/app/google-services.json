@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "465354756451",
+    "firebase_url": "https://quizproject-1e41a.firebaseio.com",
+    "project_id": "quizproject-1e41a",
+    "storage_bucket": "quizproject-1e41a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465354756451:android:1e118c4baed80793cac356",
+        "android_client_info": {
+          "package_name": "com.example.quiz_math_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465354756451-jokbfopbhv655f8egi5q19cvtb2juh9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASel79iDivUeLyInmd4qEzcgJh4E0OIic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465354756451-jokbfopbhv655f8egi5q19cvtb2juh9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

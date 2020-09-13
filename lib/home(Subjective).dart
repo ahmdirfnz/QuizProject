@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_math_project/quizPage(Subjective).dart';
-import 'package:quiz_math_project/home(Objective).dart';
-import 'package:flutter/services.dart';
 
 class HomepageSub extends StatefulWidget {
   @override
@@ -9,16 +7,13 @@ class HomepageSub extends StatefulWidget {
 }
 
 class _HomepageSubState extends State<HomepageSub> {
-
   List<String> images = [
-
     "assets/images/differentiation.png",
     "assets/images/integration.png",
     "assets/images/trigonometry.png",
-
   ];
 
-  Widget customcard(String subtopic,String image) {
+  Widget customcard(String subtopic, String image) {
     return Padding(
       padding: EdgeInsets.all(
         20.0,
@@ -26,7 +21,7 @@ class _HomepageSubState extends State<HomepageSub> {
       child: InkWell(
         onTap: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => getJson(),
+            builder: (context) => QuestionUpdater(),
           ));
         },
         child: Material(
@@ -49,9 +44,7 @@ class _HomepageSubState extends State<HomepageSub> {
                       child: ClipOval(
                         child: Image(
                           fit: BoxFit.contain,
-                          image: AssetImage(
-                              image
-                          ),
+                          image: AssetImage(image),
                         ),
                       ),
                     ),

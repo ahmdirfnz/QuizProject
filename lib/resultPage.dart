@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_math_project/home(Objective).dart';
+import 'package:quiz_math_project/home.dart';
+import 'home.dart';
 
 class resultPage extends StatefulWidget {
-
   int marks;
   resultPage({Key key, @required this.marks}) : super(key: key);
 
@@ -12,7 +12,6 @@ class resultPage extends StatefulWidget {
 }
 
 class _resultPageState extends State<resultPage> {
-
   List<String> images = [
     "assets/images/congrats.png",
     "assets/images/good.png",
@@ -55,39 +54,38 @@ class _resultPageState extends State<resultPage> {
             child: Material(
               elevation: 10.0,
               child: Container(
-                child: Column(
-                  children: <Widget>[
-                    Material(
-                      child: Container(
-                        width: 300.0,
-                        height: 300.0,
-                        child: ClipRect(
-                          child: Image(
-                            image: AssetImage(
-                              image,
-                            ),
+                  child: Column(
+                children: <Widget>[
+                  Material(
+                    child: Container(
+                      width: 300.0,
+                      height: 300.0,
+                      child: ClipRect(
+                        child: Image(
+                          image: AssetImage(
+                            image,
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 5.0,
-                          horizontal: 15.0,
-                        ),
-                      child: Center(
-                        child: Text(
-                          message,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 15.0,
+                    ),
+                    child: Center(
+                      child: Text(
+                        message,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                  ],
-                )
-              ),
+                  ),
+                ],
+              )),
             ),
           ),
           Expanded(
@@ -96,18 +94,17 @@ class _resultPageState extends State<resultPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 OutlineButton(
-                    onPressed: (){
-
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => HomepageObj(),
-                      ));
-                    },
-                    child: Text(
-                      "Continue",
-                      style: TextStyle(
-                        fontSize: 18.0,
-                      ),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => Homepage(),
+                    ));
+                  },
+                  child: Text(
+                    "Continue",
+                    style: TextStyle(
+                      fontSize: 18.0,
                     ),
+                  ),
                   padding: EdgeInsets.symmetric(
                     vertical: 10.0,
                     horizontal: 25.0,
