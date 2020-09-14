@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_math_project/home.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:slider_button/slider_button.dart';
 
 class SubjQuestion extends StatelessWidget {
   @override
@@ -32,7 +33,21 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
     "assets/images/q5Math.png",
   ];
 
+  // Widget answerHidden() {
+  //   return Container(
+  //     child: Text(
+  //       "The answer",
+  //       style: TextStyle(
+  //         color: Colors.black,
+  //         fontWeight: FontWeight.bold,
+  //       ),
+  //     ),
+  //   );
+  // }
+
   int i = 0;
+
+  bool _visible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +57,7 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              height: 400.0,
+              height: 300.0,
               width: 350.0,
               child: PhotoView(
                 imageProvider: AssetImage(questionImages[i]),
@@ -55,7 +70,7 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    if (i < questionImages.length - 1) {
+                    if (i < questionImages.length - 1 && i > 0) {
                       setState(() {
                         i--;
                         print(i);
@@ -95,6 +110,34 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                AnimatedOpacity(
+                  opacity: _visible ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 500),
+                  child: Text(
+                    "This is answer",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                VerticalDivider(
+                  thickness: 10.0,
+                ),
+                FloatingActionButton(
+                  onPressed: () {
+                    setState(() {
+                      _visible = !_visible;
+                    });
+                  },
+                  tooltip: 'Press to reveal the answer',
+                  child: Icon(Icons.flip),
                 ),
               ],
             ),
