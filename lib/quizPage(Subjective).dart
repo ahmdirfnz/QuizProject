@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quiz_math_project/home.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:slider_button/slider_button.dart';
 
 class SubjQuestion extends StatelessWidget {
   @override
@@ -33,24 +33,14 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
     "assets/images/q5Math.png",
   ];
 
-  // Widget answerHidden() {
-  //   return Container(
-  //     child: Text(
-  //       "The answer",
-  //       style: TextStyle(
-  //         color: Colors.black,
-  //         fontWeight: FontWeight.bold,
-  //       ),
-  //     ),
-  //   );
-  // }
-
   int i = 0;
 
   bool _visible = false;
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return Scaffold(
       body: Center(
         child: Column(
@@ -79,6 +69,7 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
                       Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (context) => Homepage()));
                     }
+                    _visible = false;
                   },
                   child: Text(
                     "Prev",
@@ -103,6 +94,7 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
                       Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (context) => Homepage()));
                     }
+                    _visible = false;
                   },
                   child: Text(
                     "Next",
@@ -116,20 +108,6 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                AnimatedOpacity(
-                  opacity: _visible ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: 500),
-                  child: Text(
-                    "This is answer",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                VerticalDivider(
-                  thickness: 10.0,
-                ),
                 FloatingActionButton(
                   onPressed: () {
                     setState(() {
@@ -138,6 +116,20 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
                   },
                   tooltip: 'Press to reveal the answer',
                   child: Icon(Icons.flip),
+                ),
+                VerticalDivider(
+                  thickness: 10.0,
+                ),
+                AnimatedOpacity(
+                  opacity: _visible ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 500),
+                  child: Text(
+                    "This is the answer",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
