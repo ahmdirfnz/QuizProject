@@ -1,8 +1,6 @@
-
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:quiz_math_project/home(Objective).dart';
-import 'package:quiz_math_project/home.dart';
+import 'package:quiz_math_project/LoginPage.dart';
 
 class splashscreen extends StatefulWidget {
   @override
@@ -10,29 +8,28 @@ class splashscreen extends StatefulWidget {
 }
 
 class _splashscreenState extends State<splashscreen> {
-  
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 3), (){
+    Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => Homepage(),
+        builder: (context) => LoginPage(),
       ));
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.indigo,
       body: Center(
         child: Text(
-            "Calculus",
-            style: TextStyle(
+          "Calculus",
+          style: TextStyle(
             fontSize: 55.0,
-              color: Colors.white,
-        ),
+            color: Colors.white,
+          ),
         ),
       ),
     );

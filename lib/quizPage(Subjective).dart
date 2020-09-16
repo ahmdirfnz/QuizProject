@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quiz_math_project/home.dart';
 import 'package:photo_view/photo_view.dart';
 
 class SubjQuestion extends StatelessWidget {
@@ -66,8 +65,7 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
                         print(i);
                       });
                     } else {
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => Homepage()));
+                      i = 0;
                     }
                     _visible = false;
                   },
@@ -91,8 +89,7 @@ class _QuestionUpdaterState extends State<QuestionUpdater> {
                         print(i);
                       });
                     } else {
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => Homepage()));
+                      i = 0;
                     }
                     _visible = false;
                   },

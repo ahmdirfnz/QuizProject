@@ -11,8 +11,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20.0),
+    return Container(
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
