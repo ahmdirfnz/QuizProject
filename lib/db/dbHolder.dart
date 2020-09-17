@@ -5,9 +5,9 @@ import 'package:sqflite/sqlite_api.dart';
 
 class DatabaseProvider {
   static const String TABLE_LOGIN = "login";
-  static const String TABLE_ID = "id";
-  static const String TABLE_USERNAME = "username";
-  static const String TABLE_PASSWORD = "password";
+  static const String COLUMN_ID = "id";
+  static const String COLUMN_USERNAME = "username";
+  static const String COLUMN_PASSWORD = "password";
 
   DatabaseProvider._();
   static final DatabaseProvider db = DatabaseProvider._();
@@ -37,8 +37,10 @@ class DatabaseProvider {
 
         await database.execute(
           "CREATE TABLE $TABLE_LOGIN("
-          "$TABLE_USERNAME TEXT,"
-          "$TABLE_PASSWORD TEXT)",
+          "$COLUMN_ID INTEGER PRIMARY KEY,"
+          "$COLUMN_USERNAME TEXT,"
+          "$COLUMN_PASSWORD TEXT"
+          ")",
         );
       },
     );
@@ -47,8 +49,8 @@ class DatabaseProvider {
   Future<List<LoginData>> getLoginData() async {
     final db = await database;
 
-    var loginData =
-        await db.query(TABLE_LOGIN, columns: [TABLE_USERNAME, TABLE_PASSWORD]);
+    var loginData = await db
+        .query(TABLE_LOGIN, columns: [COLUMN_USERNAME, COLUMN_PASSWORD]);
 
     List<LoginData> loginList = List<LoginData>();
 
@@ -61,7 +63,7 @@ class DatabaseProvider {
 
   Future<LoginData> insert(LoginData loginData) async {
     final db = await database;
-    // loginData.username = await db.insert(TABLE_LOGIN, loginData.toMap());
+    loginData.id = await db.insert(TABLE_LOGIN, loginData.toMap());
     return loginData;
   }
 }
