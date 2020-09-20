@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:quiz_math_project/LoginPage.dart';
+import 'package:quiz_math_project/home.dart';
+import 'package:quiz_math_project/pages/login/login_page.dart';
 
 class splashscreen extends StatefulWidget {
   @override
