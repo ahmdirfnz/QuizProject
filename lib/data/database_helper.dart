@@ -33,6 +33,8 @@ class DatabaseHelper {
     await db.execute(
         "CREATE TABLE User(id INTEGER PRIMARY KEY, username TEXT, password TEXT)");
     print("Table is created");
+
+    join(await getDatabasesPath(), 'login.db');
   }
 
   Future<int> saveUser(User user) async {

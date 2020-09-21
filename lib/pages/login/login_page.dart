@@ -36,8 +36,8 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
         form.save();
         _presenter.doLogin(_username, _password);
       });
-      Navigator.of(this.context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => Homepage()));
+      // Navigator.of(this.context)
+      //     .pushReplacement(MaterialPageRoute(builder: (context) => Homepage()));
     } else {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => LoginPage()));
